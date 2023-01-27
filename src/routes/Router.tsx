@@ -38,7 +38,7 @@ import {
 
 const Router = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.VITE_BASE}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="login" element={<Login />} />
