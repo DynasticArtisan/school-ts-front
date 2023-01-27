@@ -1,0 +1,52 @@
+@import "./vars.scss";
+@import "./pages/";
+@import "./components/";
+@import "./ui/";
+
+@font-face {
+  font-family: "inter";
+  src: url("../fonts/inter-v7-latin-500.woff2") format("woff2"),
+    url("../fonts/inter-v7-latin-500.woff") format("woff"),
+    url("../fonts/inter-v7-latin-600.woff2") format("woff2"),
+    url("../fonts/inter-v7-latin-600.woff") format("woff"),
+    url("../fonts/inter-v7-latin-700.woff2") format("woff2"),
+    url("../fonts/inter-v7-latin-700.woff") format("woff"),
+    url("../fonts/inter-v7-latin-900.woff2") format("woff2"),
+    url("../fonts/inter-v7-latin-900.woff") format("woff");
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+#app {
+  background-color: $bg-white;
+  font-family: "inter", sans-serif;
+  line-height: 1.2;
+  color: $text;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  min-width: 320px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  color: inherit;
+  font-family: inherit;
+  border: none;
+  background: none;
+}

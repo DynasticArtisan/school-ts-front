@@ -1,0 +1,133 @@
+.footer {
+  position: relative;
+  padding: 92px 108px 76px 248px;
+  background-color: $primary;
+  border-radius: 60px;
+  @media (max-width: $desctop) {
+    padding: 52px 32px 52px 32px;
+    border-radius: 30px;
+  }
+  @media (max-width: $tablet) {
+    padding: 52px 36px 52px 36px;
+  }
+  @media (max-width: $mobile) {
+    padding: 32px 36px 40px 36px;
+    border-radius: 20px;
+  }
+  @media (max-width: $mini) {
+    padding: 40px 36px 44px 36px;
+    border-radius: 20px;
+  }
+}
+.footer__logo {
+  position: absolute;
+  top: 44px;
+  left: 104px;
+}
+.footer__grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, auto);
+  justify-content: space-between;
+  column-gap: 12px;
+  row-gap: 56px;
+  @media (max-width: $desctop) {
+    row-gap: 36px;
+  }
+  @media (max-width: $mobile) {
+    row-gap: 28px;
+    grid-template-columns: 1fr;
+  }
+}
+.footer__social {
+  display: flex;
+  gap: 20px;
+
+  @media (max-width: $desctop) {
+    order: -1;
+    gap: 8px;
+  }
+  @media (max-width: $mobile) {
+    gap: 12px;
+    justify-content: center;
+  }
+  @media (max-width: $mobile) {
+    gap: 10px;
+  }
+}
+.footer__social-link {
+  width: 48px;
+  height: 48px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  @media (max-width: $desctop) {
+    width: 32px;
+    height: 32px;
+  }
+  @media (max-width: $tablet) {
+    width: 30px;
+    height: 30px;
+  }
+  @media (max-width: $mobile) {
+    width: 24px;
+    height: 24px;
+  }
+}
+.footer__contact-link {
+  font-size: 22px;
+  font-weight: 700;
+  color: $bg-white;
+  align-self: end;
+  @media (max-width: $desctop) {
+    font-size: 16px;
+  }
+  @media (max-width: $mobile) {
+    font-size: 14px;
+    text-align: center;
+    &:nth-child(2) {
+      margin-top: -16px;
+    }
+  }
+  @media (max-width: $mini) {
+    font-size: 12px;
+  }
+}
+.footer__list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  @media (max-width: $desctop) {
+    gap: 20px;
+  }
+  @media (max-width: $mobile) {
+    gap: 8px;
+  }
+  @media (max-width: $mini) {
+    gap: 12px;
+  }
+}
+.footer__nav-link,
+.footer__requisit {
+  font-size: 18px;
+  font-weight: 500;
+  color: $bg-white;
+  @media (max-width: $desctop) {
+    font-size: 14px;
+  }
+  @media (max-width: $mobile) {
+    text-align: center;
+  }
+  @media (max-width: $mini) {
+    font-size: 12px;
+  }
+}
+
+.footer__contact-link,
+.footer__nav-link {
+  transition: color 0.3s;
+  &:hover {
+    color: $text-dark;
+  }
+}

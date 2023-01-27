@@ -1,0 +1,32 @@
+.auth-form__links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 80px;
+  @media (max-width: $desctop) {
+    margin-bottom: 48px;
+  }
+  @media (max-width: $mobile) {
+    margin-bottom: 36px;
+  }
+}
+.auth-form__links-item {
+  font-weight: 700;
+  font-size: 34px;
+  color: $text-light;
+  transition: color 0.3s;
+  &:hover,
+  &:focus {
+    color: $text;
+  }
+  &._current {
+    pointer-events: none;
+    color: $accent;
+  }
+  @media (max-width: $desctop) {
+    font-size: 30px;
+  }
+  @media (max-width: $mobile) {
+    font-size: 20px;
+  }
+}

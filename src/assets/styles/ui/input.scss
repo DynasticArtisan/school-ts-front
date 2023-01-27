@@ -1,0 +1,86 @@
+.input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input__element {
+  display: block;
+  width: 100%;
+  font-size: 22px;
+  font-weight: 500;
+  padding-left: 40px;
+  padding-right: 80px;
+  padding-top: 36px;
+  padding-bottom: 16px;
+  border: 1px solid $light-gray;
+  border-radius: 25px;
+  transition: background-color 0.2s, border-color 0.2s;
+  &:focus {
+    background-color: $white;
+    border-color: $primary;
+  }
+  @media (max-width: $desctop) {
+    font-size: 16px;
+    padding-left: 24px;
+    padding-right: 52px;
+    padding-top: 16px;
+    padding-bottom: 6px;
+    border-radius: 14px;
+  }
+  @media (max-width: $mini) {
+    font-size: 14px;
+    padding-right: 40px;
+  }
+}
+
+.input__label {
+  pointer-events: none;
+  position: absolute;
+  top: 16px;
+  left: 40px;
+  font-size: 14px;
+  font-weight: 500;
+  color: $text-light;
+  will-change: top, font-size;
+  transition: top 0.2s, font-size 0.2s;
+  @media (max-width: $desctop) {
+    font-size: 10px;
+    top: 4px;
+    left: 24px;
+  }
+}
+
+.input__visible-icon {
+  cursor: pointer;
+  position: absolute;
+  right: 40px;
+  @media (max-width: $desctop) {
+    right: 18px;
+    width: 22px;
+  }
+  @media (max-width: $mini) {
+    right: 12px;
+    width: 18px;
+  }
+}
+
+.input__element:placeholder-shown {
+  padding-top: 28px;
+  padding-bottom: 24px;
+  @media (max-width: $desctop) {
+    padding-top: 12px;
+    padding-bottom: 10px;
+  }
+}
+.input__element:placeholder-shown ~ .input__label {
+  top: 28px;
+  font-size: 22px;
+  @media (max-width: $desctop) {
+    top: 12px;
+    font-size: 16px;
+  }
+  @media (max-width: $mobile) {
+    font-size: 14px;
+  }
+}

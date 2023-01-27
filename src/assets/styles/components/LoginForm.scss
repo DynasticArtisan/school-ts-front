@@ -1,0 +1,74 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 548px;
+  margin: 0 auto;
+  @media (max-width: $desctop) {
+    max-width: 310px;
+  }
+  @media (max-width: $mobile) {
+  }
+}
+.login-form__inputs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.login-form__options {
+  margin-top: 36px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media (max-width: $desctop) {
+    margin-top: 18px;
+    flex-direction: column;
+    gap: 16px;
+  }
+  @media (max-width: $mini) {
+    margin-top: 16px;
+  }
+}
+.login-form__remember {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 500;
+  @media (max-width: $desctop) {
+    gap: 10px;
+    font-size: 16px;
+  }
+  @media (max-width: $mini) {
+    gap: 4px;
+    font-size: 12px;
+  }
+}
+
+.login-form__forgot-password {
+  font-weight: 500;
+  font-size: 22px;
+  color: $text-light;
+  transition: color 0.3s;
+  &:hover {
+    color: $text;
+  }
+  @media (max-width: $desctop) {
+    font-size: 16px;
+  }
+  @media (max-width: $mini) {
+    gap: 4px;
+    font-size: 12px;
+  }
+}
+.login-form__submit {
+  margin-top: 68px;
+  @media (max-width: $desctop) {
+    margin-top: 48px;
+  }
+  @media (max-width: $mini) {
+    margin-top: 40px;
+  }
+}

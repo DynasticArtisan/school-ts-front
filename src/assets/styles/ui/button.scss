@@ -1,0 +1,41 @@
+.button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 16px 60px 16px 32px;
+  border-radius: 30px;
+  color: $white;
+  font-size: 22px;
+  font-weight: 700;
+  background-color: $accent;
+  box-shadow: 0 3px 20px hsl(9deg 77% 62% / 25%);
+  @media (max-width: $desctop) {
+    font-size: 16px;
+    padding: 8px 40px 8px 16px;
+  }
+  @media (max-width: $mini) {
+    font-size: 14px;
+  }
+}
+.button__icon {
+  position: absolute;
+  width: 32px;
+  right: 20px;
+  transition: transform 0.3s;
+  .button:hover &,
+  .button:focus & {
+    transform: translateX(5px);
+  }
+  @media (max-width: $desctop) {
+    width: 24px;
+    right: 12px;
+    .button:hover &,
+    .button:focus & {
+      transform: translateX(3px);
+    }
+  }
+  @media (max-width: $mini) {
+    width: 16px;
+  }
+}

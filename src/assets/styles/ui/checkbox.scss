@@ -1,0 +1,73 @@
+.checkbox {
+  position: relative;
+  cursor: pointer;
+}
+.checkbox__square {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $light-gray;
+  border-radius: 25px;
+  transition: border-color 0.2s, background-color 0.2s;
+  .checkbox__input:focus ~ &,
+  .checkbox__input:active ~ & {
+    background-color: $white;
+    border-color: $primary;
+  }
+  .checkbox_small & {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
+  @media (max-width: $desctop) {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    .checkbox_small & {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+    }
+  }
+  @media (max-width: $mobile) {
+    width: 38px;
+    width: 38px;
+    .checkbox_small & {
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+    }
+  }
+}
+
+.checkbox__input {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.checkbox__checked-icon {
+  width: 29px;
+  display: none;
+
+  .checkbox__input:checked ~ .checkbox__square & {
+    display: block;
+  }
+  .checkbox_small & {
+    width: 24px;
+  }
+  @media (max-width: $desctop) {
+    width: 20px;
+    .checkbox_small & {
+      width: 12px;
+    }
+  }
+  @media (max-width: $mobile) {
+    width: 18px;
+    .checkbox_small & {
+      width: 12px;
+    }
+  }
+}
