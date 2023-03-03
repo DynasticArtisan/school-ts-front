@@ -19,11 +19,7 @@ const RegisterForm: FC = () => {
   const handleRegistry = handleSubmit(registry);
 
   const errorMsg =
-    errors.name ||
-    errors.lastname ||
-    errors.email ||
-    errors.password ||
-    error?.data;
+    errors.name || errors.lastname || errors.email || errors.password;
 
   return (
     <form className="register-form" onSubmit={handleRegistry}>
