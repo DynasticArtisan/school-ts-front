@@ -5,15 +5,16 @@ import invisibleIcon from "../assets/svg/invisible.svg";
 
 interface Props extends HTMLProps<HTMLInputElement> {
   children: string;
+  invalid?: boolean;
 }
 
 const Input = forwardRef<HTMLInputElement, Props>(
-  ({ children, className, ...props }, ref) => {
+  ({ children, className, invalid = false, ...props }, ref) => {
     return (
       <label className={cns("input", className)}>
         <input
           {...props}
-          className={"input__element"}
+          className={cns("input__element", { input__element_invalid: invalid })}
           type="text"
           ref={ref}
           placeholder=" "
@@ -25,14 +26,14 @@ const Input = forwardRef<HTMLInputElement, Props>(
 );
 
 export const PasswordInput = forwardRef<HTMLInputElement, Props>(
-  ({ children, className, ...props }, ref) => {
+  ({ children, className, invalid = false, ...props }, ref) => {
     const [visible, setVisible] = useState<boolean>(false);
 
     return (
       <label className={cns("input", className)}>
         <input
           {...props}
-          className="input__element"
+          className={cns("input__element", { input__element_invalid: invalid })}
           type={visible ? "text" : "password"}
           ref={ref}
           placeholder=" "

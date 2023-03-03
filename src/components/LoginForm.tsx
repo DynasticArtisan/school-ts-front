@@ -1,33 +1,43 @@
 import React, { FC } from "react";
 
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { useLoginMutation } from "../redux/api/authApi";
+import { setCredentials } from "../redux/slices/authSlice";
+import { LoginSchema } from "../schemas/authSchemas";
 import { Button, Input, PasswordInput } from "../ui";
+import { zodResolver } from "@hookform/resolvers/zod";
 import Checkbox from "../ui/Checkbox";
 
-interface Props {
-  onSubmit: SubmitHandler<LoginFields>;
-}
+const LoginForm: FC = () => {
+  const dispatch = useDispatch();
+  const [login] = useLoginMutation();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginSchema>({
+    resolver: zodResolver(LoginSchema),
+  });
 
-interface LoginFields {
-  email: string;
-  password: string;
-  remember: boolean;
-}
-
-const LoginForm: FC<Props> = ({ onSubmit }) => {
-  const { register, handleSubmit } = useForm<LoginFields>();
+  const handleLogin = handleSubmit(async (payload) => {
+    try {
+      const res = await login(payload).unwrap();
+      dispatch(setCredentials(res));
+    } catch (e) {}
+  });
 
   return (
-    <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
+    <form className="login-form" onSubmit={handleLogin}>
       <div className="login-form__inputs">
-        <Input {...register("email", { required: true })} type="email">
+        <Input {...register("email")} invalid={Boolean(errors.email)}>
           Адрес элетронной почты
         </Input>
 
         <PasswordInput
-          {...register("password", { required: true })}
-          type="password"
+          {...register("password")}
+          invalid={Boolean(errors.password)}
         >
           Пароль
         </PasswordInput>

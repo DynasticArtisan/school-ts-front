@@ -4,18 +4,23 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --mode production",
-    "dev:host": "vite --host",
+    "dev": "vite --mode dev",
+    "dev:host": "vite --host --mode dev",
     "build": "tsc && vite build",
     "build:prod": "tsc && vite build --base=/v_2/ --mode production",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.9.10",
+    "@reduxjs/toolkit": "^1.9.2",
+    "axios": "^1.2.6",
     "classnames": "^2.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.42.1",
-    "react-router-dom": "^6.7.0"
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.7.0",
+    "zod": "^3.20.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",

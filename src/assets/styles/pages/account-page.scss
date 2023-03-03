@@ -1,0 +1,69 @@
+.account-page__greetings {
+  margin-top: 120px;
+  display: flex;
+  gap: 40px;
+  @media (max-width: $tablet) {
+    margin-top: 0;
+  }
+  @media (max-width: $mobile) {
+    flex-wrap: wrap;
+  }
+}
+.accout-page__greetings-column {
+  width: 600px;
+  @media (max-width: $desctop) {
+  }
+  @media (max-width: $mobile) {
+    width: 100%;
+  }
+}
+.accout-page__greetings-title {
+  font-weight: 900;
+  font-size: 46px;
+  color: $text-dark;
+  @media (max-width: $desctop) {
+    font-size: 38px;
+  }
+  @media (max-width: $tablet) {
+  }
+  @media (max-width: $mobile) {
+    font-size: 28px;
+  }
+}
+.accout-page__greetings-text {
+  margin-top: 60px;
+  font-weight: 500;
+  font-size: 22px;
+  @media (max-width: $desctop) {
+    margin-top: 40px;
+    font-size: 18px;
+  }
+  @media (max-width: $tablet) {
+  }
+  @media (max-width: $mobile) {
+    margin-top: 30px;
+    font-size: 16px;
+  }
+}
+.accout-page__greetings-image {
+  img {
+    width: 100%;
+  }
+  @media (max-width: $mobile) {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+.accout-page__greetings-btn {
+  display: block;
+  margin-top: 60px;
+  @media (max-width: $desctop) {
+    margin-top: 40px;
+  }
+  @media (max-width: $tablet) {
+  }
+  @media (max-width: $mobile) {
+    margin-top: 30px;
+  }
+}

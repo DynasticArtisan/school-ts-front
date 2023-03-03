@@ -8,17 +8,30 @@ import defaultAvatarImage from "../assets/avatars/default.png";
 import notesSparkImage from "../assets/images/spark.png";
 
 import { Link } from "react-router-dom";
+import useAppSelector from "../hooks/useTypedSelector";
+import { useLogoutMutation } from "../redux/api/authApi";
+import useAppDispatch from "../hooks/useAppDispatch";
+import { removeCredentials } from "../redux/slices/authSlice";
 
 const Header: FC = () => {
   const match = useMediaMatches();
-  const [menu, openMenu] = useState(false);
+  const user = useAppSelector((state) => state.auth.user);
+  const [logout] = useLogoutMutation();
+  const dispatch = useAppDispatch();
 
+  const logoutHandler = async () => {
+    try {
+      await logout().unwrap();
+      dispatch(removeCredentials());
+    } catch (error) {}
+  };
+
+  const [menu, openMenu] = useState(false);
   const closeMenuHandler = useCallback((e: MouseEvent) => {
     e.stopPropagation();
     openMenu(false);
     window.removeEventListener("click", closeMenuHandler as any);
   }, []);
-
   const openMenuHandler = useCallback((e: MouseEvent) => {
     e.stopPropagation();
     openMenu(true);
@@ -29,14 +42,14 @@ const Header: FC = () => {
     <div className="header">
       <Link to={"/"} className="header__logo">
         <img
-          src={match.desctop ? tabletLogoImage : desctoplogoImage}
+          src={match.tablet ? tabletLogoImage : desctoplogoImage}
           alt="Онлайн школа Актив"
         />
       </Link>
-      {true && (
+      {user && (
         <>
           <Link to="/account" className="header__profile">
-            <span className="header__profile-name">Алексей</span>
+            <span className="header__profile-name">{user.name}</span>
             <img
               src={defaultAvatarImage}
               alt="Алексей"
@@ -44,8 +57,12 @@ const Header: FC = () => {
             />
           </Link>
 
-          {!match.desctop ? (
-            <button className="header__logout" type="button">
+          {!match.tablet ? (
+            <button
+              className="header__logout"
+              type="button"
+              onClick={logoutHandler}
+            >
               Выйти
             </button>
           ) : (
@@ -110,7 +127,7 @@ const Header: FC = () => {
                   <button
                     type="button"
                     className="header__menu-link"
-                    onClick={closeMenuHandler}
+                    onClick={logoutHandler}
                   >
                     Выйти
                   </button>

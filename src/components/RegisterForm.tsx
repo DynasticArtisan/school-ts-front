@@ -1,37 +1,53 @@
-import React, { FC } from "react";
-
-import { useForm, SubmitHandler } from "react-hook-form";
+import React, { FC, useEffect } from "react";
+import { useRegistryMutation } from "../redux/api/authApi";
+import { RegistrationSchema } from "../schemas/authSchemas";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, Input, PasswordInput } from "../ui";
 
-interface Props {
-  onSubmit: SubmitHandler<RegisterFields>;
-}
+const RegisterForm: FC = () => {
+  const [registry, { error, data }] = useRegistryMutation();
 
-interface RegisterFields {
-  name: string;
-  lastname: string;
-  email: string;
-  password: string;
-}
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<RegistrationSchema>({
+    resolver: zodResolver(RegistrationSchema),
+  });
 
-const RegisterForm: FC<Props> = ({ onSubmit }) => {
-  const { register, handleSubmit } = useForm<RegisterFields>();
+  const handleRegistry = handleSubmit(registry);
+
+  const errorMsg =
+    errors.name ||
+    errors.lastname ||
+    errors.email ||
+    errors.password ||
+    error?.data;
 
   return (
-    <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
+    <form className="register-form" onSubmit={handleRegistry}>
       <div className="register-form__inputs">
-        <Input {...register("name", { required: true })}>Имя</Input>
-        <Input {...register("lastname", { required: true })}>Фамилия</Input>
-        <Input {...register("email", { required: true })}>
+        <Input {...register("name")} invalid={Boolean(errors.name)}>
+          Имя
+        </Input>
+        <Input {...register("lastname")} invalid={Boolean(errors.lastname)}>
+          Фамилия
+        </Input>
+        <Input {...register("email")} invalid={Boolean(errors.email)}>
           Адрес элетронной почты
         </Input>
         <PasswordInput
-          {...register("password", { required: true })}
-          type="password"
+          {...register("password")}
+          invalid={Boolean(errors.password)}
         >
           Пароль
         </PasswordInput>
       </div>
+      {errorMsg && (
+        <div className="register-form__error">{errorMsg.message}</div>
+      )}
+
       <Button type="submit" className="register-form__submit">
         Зарегестрироваться
       </Button>

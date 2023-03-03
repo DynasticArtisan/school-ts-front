@@ -20,6 +20,12 @@
     background-color: $white;
     border-color: $primary;
   }
+  &_invalid {
+    border-color: $accent;
+    &:focus {
+      border-color: $accent;
+    }
+  }
   @media (max-width: $desctop) {
     font-size: 16px;
     padding-left: 24px;

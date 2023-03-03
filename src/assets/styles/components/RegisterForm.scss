@@ -16,7 +16,13 @@
   flex-direction: column;
   gap: 32px;
 }
-
+.register-form__error {
+  margin-top: 20px;
+  font-size: 22px;
+  font-weight: 500;
+  color: $accent;
+  text-align: center;
+}
 .register-form__submit {
   margin-top: 68px;
   @media (max-width: $desctop) {

@@ -1,0 +1,92 @@
+.menu {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.menu__link,
+.menu__account-link {
+  cursor: pointer;
+  height: 232px;
+  background-color: white;
+  border-radius: 25px;
+  border: 1px solid rgba(123, 129, 140, 0.08);
+  padding: 40px 36px;
+  @media (max-width: $desctop) {
+    height: 200px;
+    padding: 30px 24px;
+  }
+}
+.menu__link {
+  flex-grow: 1;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  font-weight: 700;
+  font-size: 34px;
+  @media (max-width: $desctop) {
+    font-size: 28px;
+  }
+}
+.menu__account-link {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  @media (max-width: $desctop) {
+    gap: 30px;
+  }
+}
+.menu__account-image {
+  flex-shrink: 0;
+  width: 154px;
+  height: 154px;
+  border-radius: 50%;
+  background-color: $primary;
+  @media (max-width: $desctop) {
+    width: 100px;
+    height: 100px;
+  }
+}
+.menu__account-name {
+  font-weight: 700;
+  font-size: 34px;
+  color: $text-dark;
+  @media (max-width: $desctop) {
+    font-size: 28px;
+  }
+}
+.menu__account-settings {
+  font-weight: 500;
+  font-size: 22px;
+  margin-top: 16px;
+  @media (max-width: $desctop) {
+    font-size: 18px;
+    margin-top: 8px;
+  }
+}
+.menu__account-role {
+  margin-left: auto;
+  padding-left: 200px;
+  font-weight: 500;
+  font-size: 22px;
+  color: $primary;
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  @media (max-width: $desctop) {
+    font-size: 18px;
+    img {
+      width: 32px;
+    }
+  }
+}
+.menu__note-spark {
+  position: absolute;
+  top: 28px;
+  right: 32px;
+  width: 48px;
+  margin-bottom: auto;
+  @media (max-width: $desctop) {
+    width: 36px;
+  }
+}
